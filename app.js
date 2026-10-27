@@ -6,7 +6,8 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const god=id=>GODS.find(g=>g.id===id);
 let artStyle='chibi';try{const remembered=localStorage.getItem('divine-art-style');if(remembered==='portrait')artStyle='portrait'}catch{}
 const hairV3Ids=new Set(['simeng','leishen','huoshen','rishen','yanluo']);
-const chibiUrl=id=>`assets/${hairV3Ids.has(id)?'chibi-hair-v3':'chibi-hair-v2'}/${id}.webp`;
+const hairV4Ids=new Set(['huoshen','rishen']);
+const chibiUrl=id=>`assets/${hairV4Ids.has(id)?'chibi-hair-v4':hairV3Ids.has(id)?'chibi-hair-v3':'chibi-hair-v2'}/${id}.webp`;
 const artUrl=id=>artStyle==='chibi'?chibiUrl(id):`assets/${id}.webp`;
 function syncArtControls(){document.body.dataset.art=artStyle;document.querySelectorAll('[data-art-choice]').forEach(b=>{const active=b.dataset.artChoice===artStyle;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))})}
 function setArtStyle(style){artStyle=style;if(currentResult)history.replaceState(null,'',resultUrl());try{localStorage.setItem('divine-art-style',style)}catch{}syncArtControls();document.querySelectorAll('img[data-god-art]').forEach(img=>{img.src=artUrl(img.dataset.godArt)});document.querySelectorAll('.image-caption').forEach(p=>{p.textContent=style==='chibi'?'原创手绘风 Q 版 OC · 神职意象，可自由改设':'原创 AI 神职意象插画 · 不限定你的 OC 外貌与性别'})}
