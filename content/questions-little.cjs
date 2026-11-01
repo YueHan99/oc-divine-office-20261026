@@ -1,0 +1,11 @@
+module.exports=[
+{chapter:'第五卷 · 一隅神性',title:'故事落幕后，你最想替重要的人留下什么？',sub:'荣耀以外，TA真正需要的也许很小。',options:[['让TA不在场时，也有一份能被认出的温柔。','xiangshen','siyuan'],['一件能陪TA多走几年、坏了还可以修的东西。','zhishen','tudi'],['一段谁都不催TA立刻振作的安静。','xueshen','yaowang'],['有人肯在难走的下一步，仍然陪着TA。','yingshen','sideng'],['一个不用靠演得很好才换来的位置。','jingshen','siheng'],['按自己的节奏长大，无需表演给谁看。','huashen','simeng']]},
+{chapter:'第五卷 · 一隅神性',title:'一个很会逞强的人来找你，说自己“只是路过”。',sub:'你决定怎样接住这句借口？',options:[['不拆穿。把椅子拉开，让TA先把气喘匀。','mengpo','yaowang'],['随手把话题接过去，让TA不尴尬地加入热闹。','jiushen','zaoshen'],['看看TA有什么磨损的小地方，先动手照料。','zhishen','tudi'],['替TA挡掉接下来的催促，今天可以什么也不做。','xueshen','simeng'],['坦白说我也不太会安慰，但我能陪你走一会儿。','yingshen','fengbo'],['指出TA不用在我面前装得很好，然后由TA决定说多少。','jingshen','sihui']]},
+{chapter:'第五卷 · 一隅神性',title:'你经营一间小店。什么会是绝不让步的店规？',sub:'这间小小的地方，最好能照见TA的性格。',options:[['客人可以慢慢告别，不能借遗忘逃掉责任。','mengpo','yanluo'],['谁都可以来坐，但没人必须喝、必须笑、必须合群。','jiushen','siheng'],['关心可以不出声，拿气氛逼人答应不可以。','xiangshen','siqi'],['要休息的人先休息，别把每次停下都叫偷懒。','xueshen','yaowang'],['求助不用证明自己足够惨，一点点害怕也值得被陪。','yingshen','sideng'],['可以保护秘密，不许把伤人的借口装成善意。','jingshen','leishen']]},
+{chapter:'第五卷 · 一隅神性',title:'一份好意没有被注意到，你会怎样？',sub:'想象TA最真实的一点小脾气。',options:[['装作并不介意，先替对方把该结束的事收好。','mengpo','yanluo'],['多开几句玩笑，散场后才发现自己也想有人留下。','jiushen','fengbo'],['把那句想问的话藏好，悄悄观察对方有没有想起。','xiangshen','yueshen'],['嘴上说只是顺手，回去把没送出的部分再改一遍。','zhishen','siyuan'],['怕自己做得还不够，于是又往前陪了一段。','yingshen','siyu'],['先检查自己有没有误会，却差点把难过也分析掉。','jingshen','siqi']]},
+{chapter:'第五卷 · 一隅神性',title:'有人拿“为你好”要求你按TA的方式生活。你最接近哪种反应？',sub:'最后一次选择，也请把决定留给角色本人。',options:[['我会记得你的好，但这段牵扯该放下的也要放下。','mengpo','siheng'],['能同桌聊天，不等于你能替我决定什么才叫尽兴。','jiushen','fengbo'],['不争着说服你。我会让自己的生活留下另一种答案。','xiangshen','wenchang'],['心意我认真收下，勒得太紧的那一针也必须拆掉。','zhishen','siyuan'],['容我安静一阵。暂停的时间，不需要向别人讨。','xueshen','simeng'],['你可以不认同，但我要护着那个人走TA自己想走的路。','sideng','zhanshen']]}
+];
+// Pair the new offices with related secondary inclinations so they receive
+// secondary evidence as well as primary opportunities, like the original roster.
+const secondary={mengpo:'xueshen',jiushen:'xiangshen',xiangshen:'jingshen',zhishen:'yingshen',xueshen:'zhishen',yingshen:'jiushen',jingshen:'mengpo'};
+for(const q of module.exports)for(const o of q.options)if(secondary[o[1]])o[2]=secondary[o[1]];

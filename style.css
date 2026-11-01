@@ -23,3 +23,5 @@ body[data-art="line"] .mode-portrait{background:#faf8f4}
 body[data-art="line"] .mode-portrait img{height:85%}
 @media(max-width:750px){.art-switch button{padding:5px 5px;font-size:8px}nav{gap:8px}.brand{font-size:18px}.brand small{font-size:6px}body[data-art="line"] .hero-art{height:430px;min-height:430px}body[data-art="line"] .hero-art>img{height:94%;width:86%;left:4%;top:0}body[data-art="line"] .god-card{aspect-ratio:2/3}body[data-art="line"] .god-card>img{height:70%;margin-top:15px}body[data-art="line"] .card-title h2{font-size:48px}body[data-art="line"] .card-title p{font-size:12px}body[data-art="line"] .atlas-detail>img{max-height:460px}}
 @media(max-width:360px){header{padding:0 4%}.brand{font-size:15px;gap:5px}.brand small{font-size:5px}.seal{font-size:18px}nav>button{font-size:9px}.art-switch button{font-size:7px;padding:4px}.art-switch{padding:2px}}
+
+.source-note{font-size:11px!important;color:#9eaa99!important;border-top:1px solid var(--line);padding-top:15px}.atlas-item img[src*="line-oc-v2"]{object-fit:contain;background:#faf8f4}.atlas-detail>img[src*="line-oc-v2"]{object-fit:contain;background:#faf8f4}
