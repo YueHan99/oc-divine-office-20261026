@@ -13,7 +13,7 @@ const forestIds=new Set(['shangui','yunzhongjun','baicao','baiguo']);
 const longIds=new Set([...forestIds,'jiushen','yingshen','jingshen','huashen']);
 const allLongIds=new Set(["sichen", "siyu", "siqi", "sihui", "siheng", "fengbo", "huoshen", "caishen", "yanluo", "zaoshen", "yaowang", "tudi", "rishen", "mengpo", "zhishen", "jiushen", "yueshen"]);
 const brandNewIds=new Set([...littleIds,...forestIds,...allLongIds]);
-const lineUrl=id=>`assets/${allLongIds.has(id)?'line-oc-v4':longIds.has(id)?'line-oc-v3':littleIds.has(id)?'line-oc-v2':'line-oc'}/${id}.webp`;
+const lineUrl=id=>id==='jiushen'?'assets/line-oc-v7/jiushen.webp':`assets/${allLongIds.has(id)?'line-oc-v4':longIds.has(id)?'line-oc-v3':littleIds.has(id)?'line-oc-v2':'line-oc'}/${id}.webp`;
 const ocUrl=id=>artStyle==='line'||brandNewIds.has(id)?lineUrl(id):chibiUrl(id);
 const artUrl=id=>brandNewIds.has(id)?lineUrl(id):artStyle==='portrait'?`assets/${id}.webp`:ocUrl(id);
 function syncArtControls(){document.body.dataset.art=artStyle;document.querySelectorAll('[data-art-choice]').forEach(b=>{const active=b.dataset.artChoice===artStyle;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))})}
