@@ -2,8 +2,19 @@ const assert=require('node:assert/strict'),fs=require('fs'),path=require('path')
 const {GODS,GODS_V2,GODS_V3,QUESTIONS,QUESTIONS_V2,QUESTIONS_V3,LEGACY_QUESTIONS,rankAnswers}=require('../data');
 assert.equal(GODS.length,35);assert.equal(QUESTIONS.length,25);assert.equal(new Set(GODS.map(g=>g.id)).size,35);
 const appearances=Object.fromEntries(GODS.map(g=>[g.id,0])),fixtures={};
+// The fantasy rewrite must never change a question's scoring targets or archived versions.
+const originalQuestions=[...require('../content/questions.cjs'),...require('../content/questions-little.cjs'),...require('../content/questions-forest.cjs')];
+assert.deepEqual(QUESTIONS.map(q=>q.options.map(o=>o.slice(1))),originalQuestions.map(q=>q.options.map(o=>o.slice(1))));
+assert.equal(new Set(GODS.map(g=>g.fantasy?.lineage)).size,35,'duplicate fantasy origins');
+assert.equal(new Set(GODS.map(g=>g.fantasy?.gift[0])).size,35,'duplicate signature abilities');
+assert.equal(new Set(GODS.map(g=>g.fantasy?.release[0])).size,35,'duplicate domains');
 for(const q of QUESTIONS){assert.equal(q.options.length,6);for(const [text,p,s] of q.options){assert(text.length>8);assert(p in appearances);assert(s in appearances);appearances[p]++}}
 for(const g of GODS){
+ assert(g.fantasy,'missing fantasy dossier: '+g.id);
+ for(const key of ['lineage','origin','chronicle','taboo'])assert(typeof g.fantasy[key]==='string'&&g.fantasy[key].length>6,'missing fantasy field: '+g.id+'/'+key);
+ for(const key of ['gift','release'])assert(g.fantasy[key].length===2&&g.fantasy[key].every(t=>typeof t==='string'&&t.length>2),'incomplete ability: '+g.id+'/'+key);
+ assert(g.allyText.includes(GODS.find(x=>x.id===g.ally).name),'ally label does not match story: '+g.id);
+ assert(g.rivalText.includes(GODS.find(x=>x.id===g.rival).name),'rival label does not match story: '+g.id);
  assert([4,5].includes(appearances[g.id]),'unbalanced exposure: '+g.id);
  assert(g.deep.join('').length>=180,'short analysis: '+g.id);
  assert(g.modes.length===3&&g.forum.length===3&&g.gossip.length===2);

@@ -142,6 +142,17 @@ dialog::backdrop { background: #7561876e; backdrop-filter: blur(8px); }
 :root body:is([data-art="line"], [data-art="chibi"]) .mode-portrait>span { color: #816193; }
 #toast { background: #f7efff; color: #664b7d; border: 1px solid #d8bfe8; border-radius: 14px; box-shadow: 0 8px 35px #79608c30; }
 ::selection { background: #dfc9ee; color: #513c68; }
+.origin-box, .taboo-box { grid-column: 1 / -1; }
+.origin-box { background: linear-gradient(130deg, #eee3f9c9, #fff7fbbd 60%, #e8f1fcbd); }
+.report-box .origin-lineage { font: 25px/1.65 'Noto Serif SC', serif; color: var(--accent); margin: 0 0 15px; }
+.origin-chronicle { margin-top: 22px; border-top: 1px solid var(--line); }
+.origin-chronicle summary { cursor: pointer; padding-top: 16px; font-size: 12px; color: var(--accent); }
+.origin-chronicle summary span { float: right; }
+.origin-chronicle[open] summary span { transform: rotate(45deg); }
+.origin-chronicle p { margin-top: 16px; line-height: 2.2; }
+.ability-box h3 { font-size: 20px; line-height: 1.75; }
+.release-box { background: linear-gradient(135deg, #eee4fac9, #eaf1fbc9); }
+.taboo-box { border-left: 2px solid #b48bc9; }
 @media (min-width: 751px) and (max-width: 1000px) {
   .hero-copy h1 { font-size: 36px; letter-spacing: 2px; }
 }
@@ -152,4 +163,6 @@ dialog::backdrop { background: #7561876e; backdrop-filter: blur(8px); }
   .god-card { border-radius: 20px; }
   .report-box { border-radius: 17px; }
   dialog { border-radius: 20px; }
+  .report-box .origin-lineage { font-size: 22px; }
+  .ability-box h3 { font-size: 19px; }
 }
