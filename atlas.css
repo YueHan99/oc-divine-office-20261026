@@ -2,3 +2,5 @@
 
 /* Keep the artwork close to the first screen. */
 @media(min-width:751px){.site-header{height:80px}.intro{padding:24px 0}.intro h1{font-size:44px;margin:14px 0}.intro-copy br{display:none}.intro-meta{margin-top:15px}.intro-star{top:32px;font-size:100px}.filters{padding:17px 0}.collection-toolbar{padding-top:18px}}
+
+.detail-intro{font:14px/2.1 var(--serif);color:var(--copy);margin:16px 0}
